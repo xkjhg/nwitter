@@ -41,8 +41,7 @@ const Auth = () => {
     if (name === "google") {
       provider = new GoogleAuthProvider()
     }
-    const data = await signInWithPopup(auth, provider)
-    console.log(data)
+    await signInWithPopup(auth, provider)
   }
 
   return (
