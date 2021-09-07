@@ -5,10 +5,10 @@ import Home from "routes/Home"
 import Profile from "routes/Profile"
 import Navigation from "components/Navigation"
 
-const AppRouter = ({ isLoggedin, userObj }) => {
+const AppRouter = ({ refreshUser, isLoggedin, userObj }) => {
   return (
     <Router>
-      {isLoggedin && <Navigation />}
+      {isLoggedin && <Navigation userObj={userObj} />}
       <Switch>
         {isLoggedin
           ? <div>
@@ -16,7 +16,7 @@ const AppRouter = ({ isLoggedin, userObj }) => {
                 <Home userObj={userObj} />
               </Route>
               <Route exact path="/profile">
-                <Profile />
+                <Profile userObj={userObj} refreshUser={refreshUser} />
               </Route>
             </div>
           : <Route exact path="/">
