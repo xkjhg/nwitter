@@ -1,11 +1,11 @@
-form {
+.authForm {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-form > input {
+.authForm > input {
   color: rgb(170, 124, 202);
 
   margin: 0.2rem;
@@ -18,18 +18,18 @@ form > input {
   border-radius: 5px;
 }
 
-form > input::placeholder {
+.authForm > input::placeholder {
   color: rgb(170, 124, 202);
 }
 
-form > input:hover,
-form > input:focus,
-form > input:active {
+.authForm > input:hover,
+.authForm > input:focus,
+.authForm > input:active {
   outline: none;
   border: 1px solid rgb(139, 103, 165);
 }
 
-form > input:last-child {
+.authForm > input:last-child {
   background-color: rgb(170, 124, 202);
   color: white;
 
@@ -42,18 +42,18 @@ form > input:last-child {
   transition: 0.5s;
 }
 
-form > input:last-child:hover,
-form > input:last-child:focus,
-form > input:last-child:active {
+.authForm > input:last-child:hover,
+.authForm > input:last-child:focus,
+.authForm > input:last-child:active {
   background: rgb(139, 103, 165);
   outline: 0;
 }
 
-form > input:last-child:disabled {
+.authForm > input:last-child:disabled {
   opacity: 0.5;
 }
 
-span {
+.toggleAuth {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +65,7 @@ span {
   cursor: pointer;
 }
 
-h4 {
+.errorAuth {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 
-button {
+.socialAuth > button {
   background-color: rgb(170, 124, 202);
   color: white;
   margin: 1rem;
@@ -23,12 +23,12 @@ button {
   transition: 0.5s;
 }
 
-button:active,
-button:hover,
-button:focus {
+.socialAuth > button:active,
+.socialAuth > button:hover,
+.socialAuth > button:focus {
   background: rgb(139, 103, 165);
   outline: 0;
 }
-button:disabled {
+.socialAuth > button:disabled {
   opacity: 0.5;
 }
