@@ -2,6 +2,7 @@ import AuthForm from "components/AuthForm"
 import { auth } from "fBase"
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 import React from "react"
+import "routes/Auth.css"
 
 const Auth = () => {
   const onSocialClick = async event => {
@@ -14,9 +15,9 @@ const Auth = () => {
   }
 
   return (
-    <div>
+    <div className="authContainer">
       <AuthForm />
-      <div>
+      <div className="socialAuth">
         <button onClick={onSocialClick} name="google">
           Continue with Google
         </button>

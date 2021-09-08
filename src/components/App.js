@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import "components/App.css"
 import AppRouter from "components/Router"
 import { auth } from "fBase"
 import { onAuthStateChanged, updateProfile } from "firebase/auth"
@@ -32,7 +33,7 @@ function App() {
     <div>
       {init
         ? <AppRouter refreshUser={refreshUser} isLoggedin={Boolean(userObj)} userObj={userObj} />
-        : "Initializing..."}
+        : <h1>Initializing...</h1>}
       <footer>
         &copy; Nwitter {new Date().getFullYear()}
       </footer>
