@@ -2,6 +2,7 @@ import { auth } from "fBase"
 import { updateProfile } from "firebase/auth"
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
+import "routes/Profile.css"
 
 const Profile = ({ refreshUser, userObj }) => {
   const History = useHistory()
@@ -23,7 +24,7 @@ const Profile = ({ refreshUser, userObj }) => {
     }
   }
   return (
-    <div>
+    <div className="profileContainer">
       <form onSubmit={onSubmit}>
         <input
           type="text"

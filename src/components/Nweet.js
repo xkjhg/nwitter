@@ -2,8 +2,10 @@ import { db, storage } from "fBase"
 import { deleteDoc, doc, updateDoc } from "firebase/firestore"
 import { deleteObject, ref } from "firebase/storage"
 import React, { useState } from "react"
+import "components/Nweet.css"
+import { Link } from "react-router-dom"
 
-const Nweet = ({ nweetObj, isOwner }) => {
+const Nweet = ({ nweetObj, isOwner, userObj }) => {
   const [editing, setEditing] = useState(false)
   const [newNweet, setNewNweet] = useState(nweetObj.text)
   const onDeleteClick = async () => {
@@ -30,7 +32,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
   return (
     <div>
       {editing
-        ? <div>
+        ? <div className="editNweet">
             <form onSubmit={onSubmit}>
               <input
                 type="text"
@@ -43,17 +45,30 @@ const Nweet = ({ nweetObj, isOwner }) => {
             </form>
             <button onClick={toggleEditing}>Cancel</button>
           </div>
-        : <div>
-            <h4>
-              {nweetObj.text}
-            </h4>
-            {nweetObj.attachmentUrl &&
-              <img src={nweetObj.attachmentUrl} width="50px" height="50px" />}
-            {isOwner &&
-              <div>
-                <button onClick={onDeleteClick}>DELETE</button>
-                <button onClick={toggleEditing}>EDIT</button>
-              </div>}
+        : <div className="nweet">
+            <Link
+              to={{
+                pathname: `/detail/${nweetObj.createdAt}`,
+                state: { nweetObj, isOwner, userObj }
+              }}
+            >
+              <div className="nweetProfile">
+                <h3>
+                  {userObj.photoURL && <img src={userObj.photoURL} width="50px" height="50px" />}
+                  {userObj.displayName}
+                </h3>
+              </div>
+              <h4>
+                {nweetObj.text}
+              </h4>
+              {nweetObj.attachmentUrl &&
+                <img src={nweetObj.attachmentUrl} width="50px" height="50px" />}
+              {isOwner &&
+                <div>
+                  <button onClick={onDeleteClick}>DELETE</button>
+                  <button onClick={toggleEditing}>EDIT</button>
+                </div>}
+            </Link>
           </div>}
     </div>
   )

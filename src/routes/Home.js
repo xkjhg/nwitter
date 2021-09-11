@@ -3,6 +3,7 @@ import NweetFactory from "components/NweetFactory"
 import { db } from "fBase"
 import { collection, getDocs, onSnapshot } from "firebase/firestore"
 import React, { useEffect, useState } from "react"
+import "routes/Home.css"
 
 const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([])
@@ -28,11 +29,16 @@ const Home = ({ userObj }) => {
   }, [])
 
   return (
-    <div>
+    <div className="homeContainer">
       <NweetFactory userObj={userObj} />
-      <div>
+      <div className="nweetContainer">
         {nweets.map(nweet =>
-          <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.createrId === userObj.uid} />
+          <Nweet
+            key={nweet.id}
+            nweetObj={nweet}
+            userObj={userObj}
+            isOwner={nweet.createrId === userObj.uid}
+          />
         )}
       </div>
     </div>

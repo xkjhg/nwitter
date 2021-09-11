@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import Auth from "routes/Auth"
 import Home from "routes/Home"
 import Profile from "routes/Profile"
+import NweetDetail from "routes/NweetDetail"
 import Navigation from "components/Navigation"
 
 const AppRouter = ({ refreshUser, isLoggedin, userObj }) => {
@@ -18,6 +19,7 @@ const AppRouter = ({ refreshUser, isLoggedin, userObj }) => {
               <Route exact path="/profile">
                 <Profile userObj={userObj} refreshUser={refreshUser} />
               </Route>
+              <Route exact path="/detail/:nweetObj.createdAt" component={NweetDetail} />
             </div>
           : <Route exact path="/">
               <Auth />
