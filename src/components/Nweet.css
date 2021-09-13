@@ -1,7 +1,10 @@
 .nweet {
-  border: 1px solid rgba(33, 32, 32, 0.4);
+  border: 0.5px solid rgba(115, 83, 138, 0.4);
+  margin-bottom: 10px;
   padding: 10px;
-  width: 100%;
+  flex-shrink: 0;
+  min-width: 400px;
+  border-radius: 20px;
 }
 
 .nweet:focus,
@@ -15,6 +18,31 @@
   opacity: 0.5;
 }
 
-.nweetProfile > img {
-  border-radius: 10px;
+.nweetProfile {
+  display: flex;
+  flex-direction: row;
+}
+
+.profileImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profileCircle {
+  width: 50px;
+  height: 50px;
+  background: rgb(170, 124, 202);
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.nweetText {
+  word-break: break-all;
+}
+
+.nweetImg {
+  width: 100%;
+  max-width: 400px;
+  max-height: 400px;
 }

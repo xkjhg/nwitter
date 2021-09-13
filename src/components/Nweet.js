@@ -3,7 +3,6 @@ import { deleteDoc, doc, updateDoc } from "firebase/firestore"
 import { deleteObject, ref } from "firebase/storage"
 import React, { useState } from "react"
 import "components/Nweet.css"
-import { Link } from "react-router-dom"
 
 const Nweet = ({ nweetObj, isOwner, userObj }) => {
   const [editing, setEditing] = useState(false)
@@ -46,29 +45,23 @@ const Nweet = ({ nweetObj, isOwner, userObj }) => {
             <button onClick={toggleEditing}>Cancel</button>
           </div>
         : <div className="nweet">
-            <Link
-              to={{
-                pathname: `/detail/${nweetObj.createdAt}`,
-                state: { nweetObj, isOwner, userObj }
-              }}
-            >
-              <div className="nweetProfile">
-                <h3>
-                  {userObj.photoURL && <img src={userObj.photoURL} width="50px" height="50px" />}
-                  {userObj.displayName}
-                </h3>
-              </div>
-              <h4>
-                {nweetObj.text}
-              </h4>
-              {nweetObj.attachmentUrl &&
-                <img src={nweetObj.attachmentUrl} width="50px" height="50px" />}
-              {isOwner &&
-                <div>
-                  <button onClick={onDeleteClick}>DELETE</button>
-                  <button onClick={toggleEditing}>EDIT</button>
-                </div>}
-            </Link>
+            <div className="nweetProfile">
+              {userObj.photoURL
+                ? <img className="profileImg" src={userObj.photoURL} />
+                : <div className="profileCircle" />}
+              <h3>
+                {userObj.displayName}
+              </h3>
+            </div>
+            <h4 className="nweetText">
+              {nweetObj.text}
+            </h4>
+            {nweetObj.attachmentUrl && <img className="nweetImg" src={nweetObj.attachmentUrl} />}
+            {isOwner &&
+              <div>
+                <button onClick={onDeleteClick}>DELETE</button>
+                <button onClick={toggleEditing}>EDIT</button>
+              </div>}
           </div>}
     </div>
   )
