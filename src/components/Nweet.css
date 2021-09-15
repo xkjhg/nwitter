@@ -10,7 +10,7 @@
 .nweet:focus,
 .nweet:active,
 .nweet:hover {
-  background: rgb(248, 248, 248);
+  background: rgb(248, 248, 248, 0.7);
   outline: 0;
 }
 
@@ -39,10 +39,42 @@
 
 .nweetText {
   word-break: break-all;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
 }
 
 .nweetImg {
   width: 100%;
   max-width: 400px;
   max-height: 400px;
+}
+
+.nweetEditDel {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.nweetEditDel > button {
+  background-color: white;
+  color: rgb(170, 124, 202);
+  border: 1px solid rgb(170, 124, 202);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 1px;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nweetEditDel > button:active,
+.nweetEditDel > button:hover,
+.nweetEditDel > button:focus {
+  background: rgb(232, 219, 242, 0.4);
+  outline: 0;
+}
+.nweetEditDel > button:disabled {
+  opacity: 0.5;
 }
