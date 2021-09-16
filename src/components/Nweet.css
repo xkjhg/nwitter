@@ -78,3 +78,36 @@
 .nweetEditDel > button:disabled {
   opacity: 0.5;
 }
+
+.editNweet {
+  border: 0.5px solid rgba(115, 83, 138, 0.4);
+  margin-bottom: 10px;
+  padding: 10px;
+  flex-shrink: 0;
+  min-width: 400px;
+  border-radius: 20px;
+}
+
+.editNweet > button {
+  float: right;
+  background-color: white;
+  color: rgb(170, 124, 202);
+  border: 1px solid rgb(170, 124, 202);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 1px;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.editNweet > form > input:first-child {
+  width: 100%;
+  height: auto;
+  line-height: normal;
+  padding: 0.8em 0.5em;
+  border: 1px solid rgb(100, 67, 123);
+  font-family: inherit;
+  outline-style: none;
+}
