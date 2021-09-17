@@ -43,6 +43,7 @@
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 5px;
+  white-space: pre-line;
 }
 
 .nweetImg {
@@ -102,12 +103,13 @@
   font-weight: 500;
 }
 
-.editNweet > form > input:first-child {
+.editNweetTxtArea {
   width: 100%;
-  height: auto;
+  height: 10em;
   line-height: normal;
   padding: 0.8em 0.5em;
   border: 1px solid rgb(100, 67, 123);
   font-family: inherit;
   outline-style: none;
+  resize: none;
 }

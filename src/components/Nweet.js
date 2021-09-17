@@ -33,7 +33,9 @@ const Nweet = ({ nweetObj, isOwner, userObj }) => {
       {editing
         ? <div className="editNweet">
             <form onSubmit={onSubmit}>
-              <input
+              <textarea
+                rows="5"
+                className="editNweetTxtArea"
                 type="text"
                 placeholder="Edit your Nweet"
                 value={newNweet}
