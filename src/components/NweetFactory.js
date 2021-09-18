@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid"
 import { db, storage } from "fBase"
 import { addDoc, collection } from "firebase/firestore"
 import { getDownloadURL, ref, uploadString } from "firebase/storage"
+import "components/NweetFactory.css"
 
 const NweetFactory = ({ userObj }) => {
   const [nweet, setNweet] = useState("")
@@ -43,14 +44,27 @@ const NweetFactory = ({ userObj }) => {
   }
   const onClearAttachment = () => setAttachment(null)
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" placeholder="Write" maxLength={120} value={nweet} onChange={onChange} />
-      <input type="file" accept="image/*" onChange={onFileChange} />
-      <input type="submit" value="Nweet" />
+    <form className="newNweetForm" onSubmit={onSubmit}>
+      <textarea
+        className="newNweetTxt"
+        rows="5"
+        type="text"
+        placeholder="Write"
+        maxLength={120}
+        value={nweet}
+        onChange={onChange}
+      />
+      <label className="newNweetImg" for="input-file">
+        Image
+      </label>
+      <input id="input-file" type="file" accept="image/*" onChange={onFileChange} />
+      <input className="newNweetSubmit" type="submit" value="Nweet" />
       {attachment &&
-        <div>
-          <img src={attachment} width="50px" height="50px" />
-          <button onClick={onClearAttachment}>CLEAR</button>
+        <div className="preview">
+          <img className="previewImg" src={attachment} />
+          <button className="previewImgClear" onClick={onClearAttachment}>
+            CLEAR
+          </button>
         </div>}
     </form>
   )

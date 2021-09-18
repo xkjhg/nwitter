@@ -89,7 +89,20 @@
   border-radius: 20px;
 }
 
-.editNweet > button {
+.editNweetTxtArea {
+  width: 100%;
+  height: 10em;
+  line-height: normal;
+  padding: 0.8em 0.5em;
+  border: 1px solid rgb(170, 124, 202);
+  border-radius: 5px;
+  color: rgb(170, 124, 202);
+  font-family: inherit;
+  outline-style: none;
+  resize: none;
+}
+
+.editNweet > form > input:last-child {
   float: right;
   background-color: white;
   color: rgb(170, 124, 202);
@@ -103,13 +116,30 @@
   font-weight: 500;
 }
 
-.editNweetTxtArea {
-  width: 100%;
-  height: 10em;
-  line-height: normal;
-  padding: 0.8em 0.5em;
-  border: 1px solid rgb(100, 67, 123);
-  font-family: inherit;
-  outline-style: none;
-  resize: none;
+.editNweet > button {
+  background-color: white;
+  color: rgb(170, 124, 202);
+  border: 1px solid rgb(170, 124, 202);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 1px;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.editNweet > button:focus,
+.editNweet > form > input:last-child:focus,
+.editNweet > button:active,
+.editNweet > form > input:last-child:active,
+.editNweet > button:hover,
+.editNweet > form > input:last-child:hover {
+  background: rgb(248, 248, 248, 0.7);
+  outline: 0;
+}
+
+.editNweet > button:disabled,
+.editNweet > form > input:last-child:disabled {
+  opacity: 0.5;
 }

@@ -1,0 +1,83 @@
+.newNweetForm {
+  background-color: rgb(170, 124, 202);
+  padding: 15px;
+  flex-shrink: 0;
+  min-width: 400px;
+  border-radius: 20px;
+}
+
+.newNweetTxt {
+  width: 100%;
+  height: 10em;
+  line-height: normal;
+  padding: 0.8em 0.5em;
+  border-radius: 5px;
+  font-family: inherit;
+  outline-style: none;
+  resize: none;
+}
+
+.newNweetTxt:focus,
+.newNweetTxt:active,
+.newNweetTxt:hover {
+  background: #ffffff;
+  outline: 0;
+}
+
+.newNweetTxt:disabled {
+  opacity: 0.5;
+}
+
+.newNweetImg {
+  color: white;
+  padding: 2.5px 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+#input-file {
+  display: none;
+}
+
+.newNweetSubmit {
+  float: right;
+  background-color: rgb(170, 124, 202);
+  color: white;
+  border: 1px solid rgb(170, 124, 202);
+  padding: 2.5px 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-top: 15px;
+}
+
+.previewImg {
+  width: 100%;
+  height: 100%;
+  max-width: 350px;
+  max-height: 350px;
+}
+
+.previewImgClear {
+  margin-top: 10px;
+  background-color: rgb(170, 124, 202);
+  color: white;
+  border: 1px solid rgb(170, 124, 202);
+  padding: 2.5px 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 600;
+}
