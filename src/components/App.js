@@ -12,6 +12,7 @@ function App() {
       if (user) {
         setUserObj({
           displayName: user.displayName,
+          photoURL: user.photoURL,
           uid: user.uid,
           updateProfile: args => updateProfile(user, args)
         })
@@ -25,6 +26,7 @@ function App() {
     const user = auth.currentUser
     setUserObj({
       displayName: user.displayName,
+      photoURL: user.photoURL,
       uid: user.uid,
       updateProfile: args => updateProfile(user, args)
     })

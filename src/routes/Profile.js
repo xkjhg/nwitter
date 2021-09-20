@@ -19,20 +19,19 @@ const Profile = ({ refreshUser, userObj }) => {
   }
   const onSubmit = async event => {
     event.preventDefault()
-    let profileImgUrl = ""
     if (profileImg !== "") {
       const attachmentRef = ref(storage, `${userObj.uid}/profileImg`)
       const response = await uploadString(attachmentRef, profileImg, "data_url")
-      profileImgUrl = await getDownloadURL(response.ref)
+      const profileImgUrl = await getDownloadURL(response.ref)
+      updateProfile(auth.currentUser, {
+        photoURL: profileImgUrl
+      }).then(() => refreshUser())
+      setProfileImg("")
     }
     if (userObj.displayName !== newDisplayName) {
       updateProfile(auth.currentUser, {
         displayName: newDisplayName
       }).then(() => refreshUser())
-    } else if (userObj.photoURL !== profileImgUrl) {
-      updateProfile(auth.currentUser, {
-        photoURL: profileImgUrl
-      })
     }
   }
   const onFileChange = event => {
@@ -49,17 +48,28 @@ const Profile = ({ refreshUser, userObj }) => {
   }
   return (
     <div className="profileContainer">
-      <form onSubmit={onSubmit}>
+      <div className="profileInfo">
+        {userObj.photoURL
+          ? <img className="profileImg" src={userObj.photoURL} />
+          : <div className="profileCircle" />}
+        <h3>
+          {userObj.displayName}
+        </h3>
+      </div>
+      <form className="profileEdit" onSubmit={onSubmit}>
         <input
+          className="displayNameEdit"
           type="text"
           placeholder="Your display name"
           value={newDisplayName}
           onChange={onChange}
         />
-        <input type="file" accept="image/*" onChange={onFileChange} />
-        <input type="submit" value="UPDATE" />
+        <input className="profileImgEdit" type="file" accept="image/*" onChange={onFileChange} />
+        <input className="ProfileEditSubmit" type="submit" value="UPDATE" />
       </form>
-      <button onClick={onLogOutClick}>LOG OUT</button>
+      <button className="LogOutBtn" onClick={onLogOutClick}>
+        LOG OUT
+      </button>
     </div>
   )
 }
