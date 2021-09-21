@@ -52,7 +52,7 @@ const Profile = ({ refreshUser, userObj }) => {
         {userObj.photoURL
           ? <img className="profileImg" src={userObj.photoURL} />
           : <div className="profileCircle" />}
-        <h3>
+        <h3 className="profileDisplayName">
           {userObj.displayName}
         </h3>
       </div>
@@ -64,7 +64,10 @@ const Profile = ({ refreshUser, userObj }) => {
           value={newDisplayName}
           onChange={onChange}
         />
-        <input className="profileImgEdit" type="file" accept="image/*" onChange={onFileChange} />
+        <label className="profileImgUp" for="profileImgEdit">
+          Profile Image
+        </label>
+        <input id="profileImgEdit" type="file" accept="image/*" onChange={onFileChange} />
         <input className="ProfileEditSubmit" type="submit" value="UPDATE" />
       </form>
       <button className="LogOutBtn" onClick={onLogOutClick}>
