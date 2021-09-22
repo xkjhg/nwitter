@@ -1,28 +1,29 @@
-.profileContainer {
+.profileEditContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.profileInfo {
+.profileEdit {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(170, 124, 202);
-  margin-bottom: 20px;
-  width: 50%;
-  border-radius: 10px;
 }
 
-.profileDisplayName {
-  padding-left: 10px;
-  color: white;
+#profileImgEdit {
+  display: none;
 }
 
-.LogOutBtn {
-  margin-top: 20px;
+.profileImgUp {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.EditProfileBtn {
   background-color: rgb(170, 124, 202);
   color: white;
   border: none;
