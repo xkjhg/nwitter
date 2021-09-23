@@ -1,15 +1,29 @@
 .profileEditContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  width: 400px;
+  border: 1px solid rgba(115, 83, 138, 0.4);
+  border-radius: 10px;
 }
 
-.profileEdit {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.displayNameEdit {
+  margin: 0.2rem;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  border: 1px solid rgba(115, 83, 138, 0.4);
+  border-radius: 5px;
+}
+
+.displayNameEdit:focus,
+.displayNameEdit:hover,
+.displayNameEdit:active {
+  outline: none;
+  border: 1px solid rgb(139, 103, 165);
 }
 
 #profileImgEdit {
@@ -17,13 +31,74 @@
 }
 
 .profileImgUp {
+  display: flex;
+  justify-content: center;
+  margin: 0.2rem;
+  padding: 0.2rem;
   cursor: pointer;
   font-family: inherit;
   font-size: 1em;
   font-weight: 600;
 }
 
+.profileImgPreviewCtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImgPreview {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profileImgClear {
+  margin-left: 5px;
+  background-color: white;
+  color: rgb(170, 124, 202);
+  border: 1px solid rgb(170, 124, 202);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ProfileEditSubmit {
+  margin-left: 15px;
+  margin-right: 1px;
+}
+
+.ProfileEditSubmit,
+.editProfileCancelBtn {
+  background-color: white;
+  color: rgb(170, 124, 202);
+  border: 1px solid rgb(170, 124, 202);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
 .EditProfileBtn {
+  background-color: rgb(170, 124, 202);
+  color: white;
+  border: none;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.LogOutBtn {
+  float: right;
+  margin-bottom: 20px;
   background-color: rgb(170, 124, 202);
   color: white;
   border: none;

@@ -3,11 +3,20 @@ import { updateProfile } from "firebase/auth"
 import { getDownloadURL, ref, uploadString } from "firebase/storage"
 import React, { useState } from "react"
 import "components/EditProfile.css"
+import { useHistory } from "react-router-dom"
 
 const EditProfile = ({ refreshUser, userObj }) => {
   const [editing, setEditing] = useState(false)
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName)
   const [profileImg, setProfileImg] = useState("")
+  const History = useHistory()
+  const onLogOutClick = () => {
+    const ok = window.confirm("Are you Sure you want to Log Out?")
+    if (ok) {
+      auth.signOut()
+      History.push("/")
+    }
+  }
   const toggleEditing = () => {
     setEditing(prev => !prev)
   }
@@ -45,6 +54,7 @@ const EditProfile = ({ refreshUser, userObj }) => {
       reader.readAsDataURL(theFile)
     }
   }
+  const onClearProfileImg = () => setProfileImg("")
   return (
     <div>
       {editing
@@ -57,17 +67,31 @@ const EditProfile = ({ refreshUser, userObj }) => {
                 value={newDisplayName}
                 onChange={onChange}
               />
+              <br />
               <label className="profileImgUp" for="profileImgEdit">
                 Profile Image
               </label>
               <input id="profileImgEdit" type="file" accept="image/*" onChange={onFileChange} />
+              {profileImg &&
+                <div className="profileImgPreviewCtn">
+                  <img className="profileImgPreview" src={profileImg} />
+                  <button className="profileImgClear" onClick={onClearProfileImg}>
+                    X
+                  </button>
+                </div>}
+              <br />
               <input className="ProfileEditSubmit" type="submit" value="UPDATE" />
+              <button className="editProfileCancelBtn" onClick={toggleEditing}>
+                CANCEL
+              </button>
             </form>
-            <button onClick={toggleEditing}>Cancel</button>
           </div>
         : <div>
             <button className="EditProfileBtn" onClick={toggleEditing}>
               Edit Profile
+            </button>
+            <button className="LogOutBtn" onClick={onLogOutClick}>
+              LOG OUT
             </button>
           </div>}
     </div>
