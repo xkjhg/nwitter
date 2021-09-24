@@ -86,7 +86,7 @@ const EditProfile = ({ refreshUser, userObj }) => {
               </button>
             </form>
           </div>
-        : <div>
+        : <div className="profileMainBtn">
             <button className="EditProfileBtn" onClick={toggleEditing}>
               Edit Profile
             </button>

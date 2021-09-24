@@ -3,17 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(170, 124, 202);
+  border-radius: 10px;
 }
 
 .profileInfo {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(170, 124, 202);
-  margin-bottom: 20px;
-  width: 400px;
-  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .profileDisplayName {
